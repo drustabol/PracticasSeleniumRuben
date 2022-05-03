@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class Ejercicio1 {
     public static WebDriver driver;
     public static void main( String[] args ) {
-        String userProfile = "C:\\Users\\pue\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\";
+        String userProfile = "C:\\Users\\ojmeneses\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\";
         WebDriverManager.chromedriver().setup(); //Cargar ChromeDriver
         ChromeOptions options = new ChromeOptions();
         options.addArguments("user-data-dir=" + userProfile);

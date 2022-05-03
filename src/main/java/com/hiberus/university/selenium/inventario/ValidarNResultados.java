@@ -1,4 +1,4 @@
-package com.hiberus.university.selenium.login;
+package com.hiberus.university.selenium.inventario;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -7,13 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class RealizarLogin {
+public class ValidarNResultados {
     public static WebDriver driver;
-
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         WebElement element;
+        ArrayList<WebElement> elementArray= new ArrayList<WebElement>();
         String userProfile="C:\\Users\\ojmeneses\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\";
         WebDriverManager.chromedriver().setup(); //Cargar ChromeDriver
         ChromeOptions options = new ChromeOptions();
@@ -37,11 +38,13 @@ public class RealizarLogin {
 
         element.click();
 
-        Thread.sleep(2000);
+        System.out.println(driver.findElement(By.xpath("//div[@class='inventory_item']")));
+        System.out.println(driver.findElement(By.id("inventory_item")));
 
-        String url=driver.getCurrentUrl();
-
-        if (url.equalsIgnoreCase("https://www.saucedemo.com/inventory.html")) System.out.println("Tó bien");
-        else System.out.println("No es correcto");
+        /*for (WebElement elemento: elementArray) {
+            elemento=driver.findElement(By.xpath("//div[@class='inventory_item']"));
+            elementArray.add(elemento);
+        }
+        System.out.println(elementArray.size());*/
     }
 }
